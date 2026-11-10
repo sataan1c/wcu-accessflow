@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register — AccessFlow</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Register</h1>
+
+<form th:action="@{/register}" th:object="${form}" method="post">
+    <p>
+        <label>Full name
+            <input type="text" th:field="*{fullName}">
+        </label>
+        <span class="field-error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
+    </p>
+    <p>
+        <label>Username
+            <input type="text" th:field="*{username}">
+        </label>
+        <span class="field-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+    </p>
+    <p>
+        <label>Password
+            <input type="password" th:field="*{password}">
+        </label>
+        <span class="field-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+    </p>
+    <button type="submit">Register</button>
+</form>
+
+<p><a th:href="@{/login}">Already have an account? Sign in</a></p>
+</body>
+</html>

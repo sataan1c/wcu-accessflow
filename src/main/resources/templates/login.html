@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign in — AccessFlow</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>AccessFlow — Sign in</h1>
+
+<p class="alert error" th:if="${param.error}">Invalid username or password.</p>
+<p class="alert success" th:if="${param.logout}">You have been signed out.</p>
+<p class="alert success" th:if="${success}" th:text="${success}"></p>
+
+<form th:action="@{/login}" method="post">
+    <p>
+        <label>Username
+            <input type="text" name="username" required autofocus>
+        </label>
+    </p>
+    <p>
+        <label>Password
+            <input type="password" name="password" required>
+        </label>
+    </p>
+    <button type="submit">Sign in</button>
+</form>
+
+<p><a th:href="@{/register}">Create an account</a></p>
+</body>
+</html>
